@@ -271,7 +271,7 @@ def create_knowledge_base(docs):
     # Will download the model the first time it runs
     embedding_function = SentenceTransformerEmbeddings(
         model_name=EMBEDDING_MODELS[0],
-        cache_folder="../data/sentencetransformers",
+        cache_folder="../models/sentencetransformers",
     )
     texts = [doc.page_content for doc in docs]
     metadatas = [doc.metadata for doc in docs]
@@ -301,7 +301,7 @@ def generate_kb_response(prompt, model, template=None):
     # Will download the model the first time it runs
     embedding_function = SentenceTransformerEmbeddings(
         model_name=EMBEDDING_MODELS[0],
-        cache_folder="../data/sentencetransformers",
+        cache_folder="../models/sentencetransformers",
     )
     db = FAISS.load_local("../data/faiss-db", embedding_function)
 
